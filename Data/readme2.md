@@ -1,6 +1,10 @@
 # Customer Churn Prediction System
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([INSERT_YOUR_LIVE_STREAMLIT_LINK_HERE])
+**Try the web app here:** [https://customer-churn-project-qhyextfbbmws4ffxgyj2vt.streamlit.app/]
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3c387bc1-2500-4c23-b0d5-f49493215c52" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a1fc4f3a-b6cc-4916-9c7a-be2abab9a631" />
 
 ## Project Overview
 Customer churn is a major challenge for subscription-based and e-commerce businesses. Predicting which customers are likely to leave allows companies to take proactive actions to retain them.
@@ -89,8 +93,7 @@ Evaluation metrics used: Accuracy, Precision, Recall, F1 Score, ROC-AUC Score, a
 
 Since churn prediction focuses on identifying customers who may leave, **Recall and F1 Score** were prioritized to minimize False Negatives.
 
-![Confusion Matrix](confusion_matrix.png)  
-*(Note: Replace `confusion_matrix.png` with the actual file path in your repository)*
+<img width="584" height="484" alt="image" src="https://github.com/user-attachments/assets/494f24c2-a3d1-4afa-8fbb-01b52c620ef3" />
 
 ---
 
@@ -98,8 +101,7 @@ Since churn prediction focuses on identifying customers who may leave, **Recall 
 
 To understand how the model makes predictions, **SHAP (SHapley Additive exPlanations)** was used. This ensures the model's decisions are transparent and actionable for business stakeholders by explaining feature importance and individual prediction behavior.
 
-![SHAP Summary Plot](shap_summary.png)  
-*(Note: Replace `shap_summary.png` with the actual file path in your repository)*
+<img width="785" height="933" alt="image" src="https://github.com/user-attachments/assets/941e47fd-80f6-483b-89a1-251438e967fc" />
 
 ---
 
@@ -129,22 +131,7 @@ The churn prediction model is deployed using **Streamlit**. Users can enter cust
 
 ---
 
-## How to Run the Project
 
-### 1. Clone the repository
-
-    git clone https://github.com/Knayam28/Customer-Churn-Project.git
-    cd Customer-Churn-Project
-
-### 2. Install dependencies
-
-    pip install -r requirements.txt
-
-### 3. Run the Streamlit app
-
-    streamlit run app.py
-
----
 
 ## Future Improvements
 
@@ -158,4 +145,4 @@ The churn prediction model is deployed using **Streamlit**. Users can enter cust
 ## Author
 
 **Mayank Singh** M.Tech Bioinformatics | Delhi Technological University (DTU)  
-Aspiring Data Scientist | Machine Learning Enthusiast
+Aspiring Data Scientist 
