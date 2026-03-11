@@ -1,74 +1,161 @@
 # Customer Churn Prediction System
 
-## Overview
-A production-style, end-to-end machine learning pipeline to predict customer churn for an e-commerce platform.  
-This repo demonstrates data cleaning, feature engineering, model training & tuning, explainability (SHAP), and deployment with **Streamlit** so recruiters and stakeholders can interact with the model.
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([INSERT_YOUR_LIVE_STREAMLIT_LINK_HERE])
+
+## Project Overview
+Customer churn is a major challenge for subscription-based and e-commerce businesses. Predicting which customers are likely to leave allows companies to take proactive actions to retain them.
+
+This project builds an **end-to-end machine learning pipeline** to predict customer churn using customer behavioral and demographic data. The model identifies customers at risk of churn and provides probability scores that can help businesses design targeted retention strategies.
+
+The final model is deployed using **Streamlit**, allowing users to interactively input customer data and obtain churn predictions.
 
 ---
 
-## Key Features
-- End-to-end pipeline: preprocessing → modeling → evaluation → deployment  
-- Handles class imbalance with **SMOTE**  
-- Model explainability using **SHAP** (global & local explanations)  
-- Deployable Streamlit app for interactive predictions  
-- Clear separation of code, notebooks, model artifacts, and app
+## Project Workflow
 
----
-
-## Quick Results (example)
-| Metric | Value |
-|---|---:|
-| Model (best) | Random Forest / XGBoost |
-| F1 Score (test) | ~0.78 |
-| ROC-AUC | High (see notebook for exact value) |
-
-> These are example summary metrics. See the notebook and `model/` folder for exact training logs and saved artifacts.
+    Dataset
+       ↓
+    Data Cleaning & Preprocessing
+       ↓
+    Exploratory Data Analysis (EDA)
+       ↓
+    Feature Engineering
+       ↓
+    Handling Class Imbalance (SMOTE)
+       ↓
+    Model Training & Hyperparameter Tuning
+       ↓
+    Model Evaluation
+       ↓
+    Model Explainability (SHAP)
+       ↓
+    Deployment with Streamlit
 
 ---
 
 ## Dataset
-Contains customer demographic and behavioral features such as:
-- Tenure, order frequency, days since last order  
-- Device type, payment method, customer satisfaction  
-- Target: `Churn` (0 = stay, 1 = churn)
 
-> The raw dataset file (if included) should be placed in `data/` or a data-loading step should be added to the notebooks/scripts.
+The dataset contains customer demographic and behavioral information from an e-commerce platform.
+
+### Example Features
+* Customer tenure
+* Order frequency
+* Payment methods
+* Device used
+* Customer satisfaction
+* Days since last order
+
+### Target Variable
+
+    Churn
+    0 → Customer stays
+    1 → Customer churns
 
 ---
 
-## Preprocessing & Engineering
-- Missing values handled with **KNNImputer**  
-- Categorical variables encoded with **OneHotEncoder**  
-- Numerical features scaled using **StandardScaler**  
-- Feature engineering to capture recency, frequency, and tenure signals  
-- Pipeline built with `sklearn.pipeline.Pipeline` for reproducibility
+## Data Preprocessing
+
+The following preprocessing techniques were applied:
+
+* Handling missing values using **KNNImputer** and **SimpleImputer**
+* Encoding categorical variables using **OneHotEncoder**
+* Feature scaling using **StandardScaler**
+* Building a preprocessing pipeline using **Scikit-learn Pipeline**
+* Splitting the dataset into **training and testing sets**
 
 ---
 
 ## Handling Class Imbalance
-- **SMOTE** is used on the training set to synthesize minority samples and reduce bias toward the majority class, improving recall on churn cases.
+
+Customer churn datasets are typically imbalanced because fewer customers churn compared to those who stay. 
+
+To address this issue:
+* **SMOTE (Synthetic Minority Oversampling Technique)** was used within an `imblearn` pipeline to balance the minority class without causing data leakage.
+* This improves the model’s ability to correctly identify actual churned customers.
 
 ---
 
-## Modeling
-- Models explored: Logistic Regression, Random Forest, Gradient Boosting, XGBoost  
-- Hyperparameter tuning via **GridSearchCV** with cross-validation  
-- Custom probability thresholding applied for business-oriented tradeoffs between false positives and false negatives
+## Model Training
+
+Multiple machine learning models were evaluated, including Logistic Regression, Random Forest, and Gradient Boosting. 
+
+The final architecture utilizes an **XGBoost Classifier**, optimized using cross-validation to capture complex, non-linear customer behaviors.
 
 ---
 
-## Explainability
-- **SHAP** used to:
-  - Identify global feature importance
-  - Explain individual predictions (local explanations)
-- SHAP plots are saved in the `reports/` or `notebooks/` folder (see notebook).
+## Model Evaluation
+
+Evaluation metrics used: Accuracy, Precision, Recall, F1 Score, ROC-AUC Score, and Confusion Matrix. 
+
+Since churn prediction focuses on identifying customers who may leave, **Recall and F1 Score** were prioritized to minimize False Negatives.
+
+![Confusion Matrix](confusion_matrix.png)  
+*(Note: Replace `confusion_matrix.png` with the actual file path in your repository)*
+
+---
+
+## Model Explainability (SHAP)
+
+To understand how the model makes predictions, **SHAP (SHapley Additive exPlanations)** was used. This ensures the model's decisions are transparent and actionable for business stakeholders by explaining feature importance and individual prediction behavior.
+
+![SHAP Summary Plot](shap_summary.png)  
+*(Note: Replace `shap_summary.png` with the actual file path in your repository)*
+
+---
+
+## Business Insights & Actionable Outcomes
+
+Key insights from the analysis include:
+
+* Customers with **short tenure** are more likely to churn.
+* **Low order frequency** correlates with higher churn risk.
+* **Long gaps since the last order** significantly increase churn probability.
+* **Targeted Retention Pipeline:** The system goes beyond basic prediction by cross-referencing churn probabilities with customer segmentation. It automatically flags at-risk **'VIP' and 'Loyal'** customers and exports a prioritized `high_value_customers_at_risk.csv` report for immediate marketing intervention.
 
 ---
 
 ## Deployment
-Interactive demo using Streamlit:
 
-```bash
-# from repository root
-pip install -r requirements.txt
-streamlit run app/streamlit_app.py
+The churn prediction model is deployed using **Streamlit**. Users can enter customer information, get churn prediction results, and view churn probability scores in real time.
+
+---
+
+## Tech Stack
+
+* **Programming Language:** Python
+* **Data Manipulation & ML:** Pandas, NumPy, Scikit-learn, XGBoost, Imbalanced-learn
+* **Explainability & Visualization:** SHAP, Matplotlib, Seaborn
+* **Deployment:** Streamlit
+
+---
+
+## How to Run the Project
+
+### 1. Clone the repository
+
+    git clone https://github.com/Knayam28/Customer-Churn-Project.git
+    cd Customer-Churn-Project
+
+### 2. Install dependencies
+
+    pip install -r requirements.txt
+
+### 3. Run the Streamlit app
+
+    streamlit run app.py
+
+---
+
+## Future Improvements
+
+* Improve model performance using advanced ensemble techniques
+* Deploy the model using **Docker and cloud platforms (AWS)**
+* Build an API using **FastAPI**
+* Implement real-time prediction pipelines
+
+---
+
+## Author
+
+**Mayank Singh** M.Tech Bioinformatics | Delhi Technological University (DTU)  
+Aspiring Data Scientist | Machine Learning Enthusiast
