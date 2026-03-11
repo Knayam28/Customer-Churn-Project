@@ -16,8 +16,8 @@ This project predicts the likelihood of e-commerce customers churning using mach
 * **Modeling:** Trained and optimized an **XGBoost Classifier** (`XGBClassifier`) to capture complex, non-linear customer behaviors and transaction patterns.
 
 <img width="584" height="484" alt="image" src="https://github.com/user-attachments/assets/494f24c2-a3d1-4afa-8fbb-01b52c620ef3" />
+<img width="785" height="933" alt="image" src="https://github.com/user-attachments/assets/941e47fd-80f6-483b-89a1-251438e967fc" />
 
-* 
 * **Actionable Business Insights:** Engineered a post-prediction pipeline that filters for users predicted to churn who also belong to the 'VIP' or 'Loyal' segments. The pipeline automatically exports a `high_value_customers_at_risk.csv` report, sorted by highest `Churn_Probability_Score`.
 * **Deployment:** Built a monolithic Streamlit dashboard to provide fast, real-time predictions on the cloud.
 
