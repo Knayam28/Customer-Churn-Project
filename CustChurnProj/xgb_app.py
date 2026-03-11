@@ -17,7 +17,7 @@ st.markdown("""
 # 2. Load Model
 @st.cache_resource
 def load_model():
-    return joblib.load('Model/xgb_churn_pipeline.pkl')
+    return joblib.load('xgb_churn_pipeline.pkl')
 
 try:
     model = load_model()
@@ -130,6 +130,7 @@ if predict_clicked:
     except Exception as e:
 
         st.error(f"An error occurred during prediction: {e}")
+
 
 
 
