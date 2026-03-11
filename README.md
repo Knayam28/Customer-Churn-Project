@@ -1,8 +1,8 @@
-Live Demo = https://customer-churn-project-qhyextfbbmws4ffxgyj2vt.streamlit.app/
-
+Live Demo =
 # E-Commerce Customer Churn Prediction 🛒📊
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([INSERT_YOUR_LIVE_STREAMLIT_LINK_HERE])
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([ https://customer-churn-project-qhyextfbbmws4ffxgyj2vt.streamlit.app/
+])
 
 ## 📌 Overview
 This project predicts the likelihood of e-commerce customers churning based on their historical behavior and demographic data. By identifying at-risk customers, businesses can proactively implement targeted retention strategies. 
@@ -10,7 +10,8 @@ This project predicts the likelihood of e-commerce customers churning based on t
 The machine learning model is deployed as a fully interactive web application using Streamlit, allowing users to input customer features and receive real-time churn probability predictions.
 
 ## 🚀 Live Demo
-**Try the web app here:** [Insert Streamlit App Link]
+**Try the web app here:** [ https://customer-churn-project-qhyextfbbmws4ffxgyj2vt.streamlit.app/
+]
 
 ## 🧠 Methodology & Architecture
 * **Data Preprocessing:** Handled missing values, encoded categorical variables, and scaled numerical features to prepare the dataset for modeling.
