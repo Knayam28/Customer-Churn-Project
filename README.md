@@ -6,6 +6,10 @@ This project predicts the likelihood of e-commerce customers churning using mach
 ## 🚀 Live Demo
 **Try the web app here:** [https://customer-churn-project-qhyextfbbmws4ffxgyj2vt.streamlit.app/]
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3c387bc1-2500-4c23-b0d5-f49493215c52" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a1fc4f3a-b6cc-4916-9c7a-be2abab9a631" />
+
 ## 🧠 Methodology & Architecture
 * **Data Preprocessing:** Handled missing values using robust techniques (`SimpleImputer` and `KNNImputer`), encoded categorical variables, and applied `StandardScaler` to normalize numerical features.
 * **Class Imbalance Handling:** The dataset exhibited a significant class imbalance, with ~83.16% retained customers and ~16.84% churned customers. Addressed this by implementing **SMOTE** (Synthetic Minority Over-sampling Technique) within an `imblearn` pipeline to synthesize minority class examples without data leakage.
