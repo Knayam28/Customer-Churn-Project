@@ -22,12 +22,12 @@ This project predicts the likelihood of e-commerce customers churning using mach
 ### Confusion Matrix
 The confusion matrix demonstrates the model's ability to correctly identify at-risk customers, minimizing false negatives to ensure high-value churners are not missed.
 
-![Confusion Matrix](<img width="584" height="484" alt="image" src="https://github.com/user-attachments/assets/494f24c2-a3d1-4afa-8fbb-01b52c620ef3" />)
+<img width="584" height="484" alt="image" src="https://github.com/user-attachments/assets/494f24c2-a3d1-4afa-8fbb-01b52c620ef3" />
 
 ### Feature Importance (SHAP)
 To ensure the model's decisions are transparent and actionable for the business, SHAP values were calculated. The summary plot below highlights the top features driving customer churn, such as Tenure and recent engagement metrics.
 
-![SHAP Summary Plot](<img width="785" height="933" alt="image" src="https://github.com/user-attachments/assets/941e47fd-80f6-483b-89a1-251438e967fc" />)
+<img width="785" height="933" alt="image" src="https://github.com/user-attachments/assets/941e47fd-80f6-483b-89a1-251438e967fc" />
 
 ## 🛠️ Tech Stack
 * **Language:** Python
