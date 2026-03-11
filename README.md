@@ -82,9 +82,7 @@ To address this issue:
 
 ## Model Training
 
-Multiple machine learning models were evaluated, including Logistic Regression, Random Forest, and Gradient Boosting. 
-
-The final architecture utilizes an **XGBoost Classifier**, optimized using cross-validation to capture complex, non-linear customer behaviors.
+**XGBoost Classifier**, optimized using cross-validation to capture complex, non-linear customer behaviors.
 
 ---
 
