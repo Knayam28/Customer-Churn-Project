@@ -144,4 +144,3 @@ The churn prediction model is deployed using **Streamlit**. Users can enter cust
 ## Author
 
 **Mayank Singh** M.Tech Bioinformatics | Delhi Technological University (DTU)  
-Aspiring Data Scientist 
