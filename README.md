@@ -128,9 +128,8 @@ The segmentation was used as a business layer on top of churn prediction to:
 
 
 ## Tableau Dashboard
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2f5fdb87-a110-4fa7-88b1-5429c8457203" />
 
-## Tableau Dashboard
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2f5fdb87-a110-4fa7-88b1-5429c8457203" />
 
 Interactive Tableau dashboards were created to visualize:
 
@@ -215,7 +214,8 @@ Because missing a churning customer can lead to revenue loss, the following metr
 - Recall
 - F1 Score
 
-This ensured the model focused on identifying potential churners while maintaining a balance between precision and recall.
+This ensure the model focused on identifying potential churners while maintaining a balance between precision and recall.
+
 ---
 
 ## Model Evaluation
