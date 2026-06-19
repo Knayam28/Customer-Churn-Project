@@ -9,13 +9,13 @@
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a1fc4f3a-b6cc-4916-9c7a-be2abab9a631" />
 
 ## Project Overview
-Project Overview
 
 Customer churn is one of the most critical challenges faced by e-commerce and subscription-based businesses. Acquiring new customers is significantly more expensive than retaining existing ones, making churn reduction a key business objective.
 
 This project combines SQL analytics, customer segmentation, Tableau visualization, and machine learning to identify customers at risk of churn and support data-driven retention strategies.
 
 The solution not only predicts which customers are likely to churn but also prioritizes high-value customers using RFM (Recency, Frequency, Monetary) segmentation. This enables businesses to focus retention efforts on customers whose loss would have the greatest revenue impact.
+
 
 Interactive dashboard built using Tableau to analyze customer churn patterns, customer segments, and business risk factors.
 
