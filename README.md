@@ -114,6 +114,7 @@ The segmentation was used as a business layer on top of churn prediction to prio
 --
 
 ## Tableau Dashboard
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2f5fdb87-a110-4fa7-88b1-5429c8457203" />
 
 Interactive Tableau dashboards were created to visualize:
 
