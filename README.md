@@ -48,126 +48,174 @@ The solution not only predicts which customers are likely to churn but also prio
 
 The dataset contains customer demographic, transactional, and behavioral information from an e-commerce platform.
 
-Example Features
-Tenure
-Preferred Login Device
-Preferred Payment Mode
-City Tier
-Satisfaction Score
-Order Count
-Cashback Amount
-Complaint Status
-Day Since Last Order
-Number of Addresses
-Target Variable
+### Features
 
-Churn
+- Tenure
+- Preferred Login Device
+- Preferred Payment Mode
+- City Tier
+- Satisfaction Score
+- Order Count
+- Cashback Amount
+- Complaint Status
+- Day Since Last Order
+- Number of Addresses
 
-0 → Customer Retained
-1 → Customer Churned
+### Target Variable
+
+**Churn**
+
+- `0` → Customer Retained
+- `1` → Customer Churned
 
 ---
 ## SQL Analytics & Business Insights
 
-SQL was used to perform exploratory customer churn analysis and identify key behavioral patterns associated with churn.
+SQL was used to perform exploratory customer churn analysis and identify key behavioral patterns associated with customer churn.
 
-Analyses Performed
-Overall Churn Rate
-Churn by Gender
-Churn by City Tier
-Churn by Complaint Status
-Churn by Tenure Group
-Churn by Payment Mode
-Churn by Order Category
-Churn by Login Device
-Churn by Marital Status
-Churn by Cashback Segment
+### Analyses Performed
 
-Key Findings
-Customers with tenure below 3 months showed the highest churn rate (41.86%).
-Customers with complaints exhibited significantly higher churn behavior.
-Cash on Delivery users displayed higher churn rates compared to other payment methods.
-Mobile category customers demonstrated elevated churn rates.
-Customer churn was strongly associated with customer engagement and purchasing behavior.
+- Overall Churn Rate
+- Churn by Gender
+- Churn by City Tier
+- Churn by Complaint Status
+- Churn by Tenure Group
+- Churn by Payment Mode
+- Churn by Order Category
+- Churn by Login Device
+- Churn by Marital Status
+- Churn by Cashback Segment
+
+### Key Findings
+
+- Customers with tenure below **3 months** showed the highest churn rate (**41.86%**).
+- Customers who raised complaints exhibited significantly higher churn behavior.
+- Customers using **Cash on Delivery (COD)** displayed higher churn rates compared to other payment methods.
+- Customers purchasing from the **Mobile** category demonstrated elevated churn rates.
+- Customer churn was strongly associated with engagement, satisfaction, and purchasing behavior.
 
 ---
+
 ## Customer Segmentation (RFM Analysis)
 
-To identify customer value, RFM (Recency, Frequency, Monetary) analysis was performed.
+To identify customer value and support retention strategies, **RFM (Recency, Frequency, Monetary)** analysis was performed.
 
-RFM Metrics
+### RFM Metrics
 
-Recency - Days since last order
+| Metric | Description |
+|----------|-------------|
+| Recency | Days since last order |
+| Frequency | Number of orders placed |
+| Monetary | Cashback amount used as a spending proxy |
 
-Frequency - Number of orders placed
+### Customer Segments
 
-Monetary - Cashback amount used as a spending proxy
+| Segment | Description |
+|----------|-------------|
+| VIP | Highly valuable and engaged customers |
+| Loyal | Regular and consistent customers |
+| At Risk | Customers showing declining engagement |
+| Lost | Low-value and inactive customers |
 
-Customer Segments
-Segment	Description
-VIP	: Highly valuable and engaged customers
-Loyal :	Regular and consistent customers
-At Risk : Customers showing declining engagement
-Lost : Low-value and inactive customers
+### Business Impact
 
-The segmentation was used as a business layer on top of churn prediction to prioritize customer retention efforts.
+The segmentation was used as a business layer on top of churn prediction to:
 
---
+- Identify high-value customers requiring retention efforts.
+- Detect customers at risk of churning.
+- Support targeted marketing and loyalty campaigns.
+- Prioritize customer engagement strategies based on customer value.
+
 
 ## Tableau Dashboard
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2f5fdb87-a110-4fa7-88b1-5429c8457203" />
 
+## Tableau Dashboard
+
 Interactive Tableau dashboards were created to visualize:
 
-Overall Churn Trends
-Customer Demographics
-Tenure-Based Churn Analysis
-Payment Mode Analysis
-Product Category Analysis
-RFM Customer Segmentation
-Customer Retention KPIs
+- Overall Churn Trends
+- Customer Demographics
+- Tenure-Based Churn Analysis
+- Payment Mode Analysis
+- Product Category Analysis
+- RFM Customer Segmentation
+- Customer Retention KPIs
 
-The dashboard enables stakeholders to quickly identify high-risk customer groups and business opportunities.
+### Business Value
+
+The dashboard enables stakeholders to:
+
+- Identify high-risk customer groups.
+- Understand churn drivers.
+- Monitor customer retention performance.
+- Discover revenue growth opportunities.
+- Support data-driven decision-making.
 
 ---
 
 ## Data Preprocessing
 
-The following preprocessing techniques were applied:
+The following preprocessing techniques were applied before model training.
 
-Missing Value Handling
-KNNImputer for numerical variables
-SimpleImputer for categorical variables
-Encoding
-OneHotEncoder for categorical features
-Scaling
-StandardScaler for numerical features
-Pipeline Construction
+### Missing Value Handling
 
-Scikit-Learn Pipelines and ColumnTransformers were used to ensure reproducible preprocessing workflows.
+| Data Type | Technique |
+|------------|------------|
+| Numerical Variables | KNNImputer |
+| Categorical Variables | SimpleImputer |
+
+### Feature Encoding
+
+- OneHotEncoder was applied to categorical features.
+
+### Feature Scaling
+
+- StandardScaler was used for numerical variables.
+
+### Pipeline Construction
+
+Scikit-Learn **Pipelines** and **ColumnTransformers** were implemented to create a reproducible and scalable preprocessing workflow.
 
 ---
 
 ## Handling Class Imbalance
 
-Customer churn datasets are typically imbalanced because fewer customers churn compared to customers who stay.
+Customer churn datasets are typically imbalanced because the number of churned customers is much lower than retained customers.
 
-To address this issue:
+### Technique Used
 
-SMOTE (Synthetic Minority Oversampling Technique) was applied within an imbalanced-learn pipeline.
-Oversampling was performed only on training data to prevent data leakage.
-This improved the model's ability to correctly identify churned customers.
+- SMOTE (Synthetic Minority Oversampling Technique)
+- Applied only to training data
+- Implemented within an imbalanced-learn pipeline
+- Prevented data leakage during model training
+
+### Benefits
+
+- Improved detection of churned customers.
+- Enhanced model robustness.
+- Reduced bias toward the majority class.
 
 ---
 
 ## Model Training
 
-Algorithm - XGBoost Classifier
+### Algorithm
 
-Hyperparameter Optimization done using RandomizedSearchCV
+- XGBoost Classifier
 
-Because missing a churning customer is costly, Recall and F1 Score were prioritized during model selection.
+### Hyperparameter Optimization
 
+- RandomizedSearchCV
+
+### Evaluation Strategy
+
+Because missing a churning customer can lead to revenue loss, the following metrics were prioritized:
+
+- Recall
+- F1 Score
+
+This ensured the model focused on identifying potential churners while maintaining a balance between precision and recall.
 ---
 
 ## Model Evaluation
