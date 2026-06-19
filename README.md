@@ -8,11 +8,13 @@
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a1fc4f3a-b6cc-4916-9c7a-be2abab9a631" />
 
 ## Project Overview
-Customer churn is a major challenge for subscription-based and e-commerce businesses. Predicting which customers are likely to leave allows companies to take proactive actions to retain them.
+Project Overview
 
-This project builds an **end-to-end machine learning pipeline** to predict customer churn using customer behavioral and demographic data. The model identifies customers at risk of churn and provides probability scores that can help businesses design targeted retention strategies.
+Customer churn is one of the most critical challenges faced by e-commerce and subscription-based businesses. Acquiring new customers is significantly more expensive than retaining existing ones, making churn reduction a key business objective.
 
-The final model is deployed using **Streamlit**, allowing users to interactively input customer data and obtain churn predictions.
+This project combines SQL analytics, customer segmentation, Tableau visualization, and machine learning to identify customers at risk of churn and support data-driven retention strategies.
+
+The solution not only predicts which customers are likely to churn but also prioritizes high-value customers using RFM (Recency, Frequency, Monetary) segmentation. This enables businesses to focus retention efforts on customers whose loss would have the greatest revenue impact.
 
 ---
 
@@ -20,41 +22,110 @@ The final model is deployed using **Streamlit**, allowing users to interactively
 
     Dataset
        ↓
+    SQL Analysis
+       ↓
+    RFM Customer segmentation
+       ↓
+    Tableau Dashboard Development
+       ↓
     Data Cleaning & Preprocessing
-       ↓
-    Exploratory Data Analysis (EDA)
-       ↓
-    Feature Engineering
        ↓
     Handling Class Imbalance (SMOTE)
        ↓
-    Model Training & Hyperparameter Tuning
+    XGBoost Model Training & Hyperparameter Tuning
        ↓
     Model Evaluation
        ↓
-    Model Explainability (SHAP)
+    SHAP Explainability
        ↓
-    Deployment with Streamlit
-
+    High-Value Customer Retention Prioritizationg
+       ↓
+    Streamlit Deployment
 ---
 
 ## Dataset
 
-The dataset contains customer demographic and behavioral information from an e-commerce platform.
+The dataset contains customer demographic, transactional, and behavioral information from an e-commerce platform.
 
-### Example Features
-* Customer tenure
-* Order frequency
-* Payment methods
-* Device used
-* Customer satisfaction
-* Days since last order
+Example Features
+Tenure
+Preferred Login Device
+Preferred Payment Mode
+City Tier
+Satisfaction Score
+Order Count
+Cashback Amount
+Complaint Status
+Day Since Last Order
+Number of Addresses
+Target Variable
 
-### Target Variable
+Churn
 
-    Churn
-    0 → Customer stays
-    1 → Customer churns
+0 → Customer Retained
+1 → Customer Churned
+
+---
+## SQL Analytics & Business Insights
+
+SQL was used to perform exploratory customer churn analysis and identify key behavioral patterns associated with churn.
+
+Analyses Performed
+Overall Churn Rate
+Churn by Gender
+Churn by City Tier
+Churn by Complaint Status
+Churn by Tenure Group
+Churn by Payment Mode
+Churn by Order Category
+Churn by Login Device
+Churn by Marital Status
+Churn by Cashback Segment
+
+Key Findings
+Customers with tenure below 3 months showed the highest churn rate (41.86%).
+Customers with complaints exhibited significantly higher churn behavior.
+Cash on Delivery users displayed higher churn rates compared to other payment methods.
+Mobile category customers demonstrated elevated churn rates.
+Customer churn was strongly associated with customer engagement and purchasing behavior.
+
+---
+## Customer Segmentation (RFM Analysis)
+
+To identify customer value, RFM (Recency, Frequency, Monetary) analysis was performed.
+
+RFM Metrics
+
+Recency - Days since last order
+
+Frequency - Number of orders placed
+
+Monetary - Cashback amount used as a spending proxy
+
+Customer Segments
+Segment	Description
+VIP	: Highly valuable and engaged customers
+Loyal :	Regular and consistent customers
+At Risk : Customers showing declining engagement
+Lost : Low-value and inactive customers
+
+The segmentation was used as a business layer on top of churn prediction to prioritize customer retention efforts.
+
+--
+
+## Tableau Dashboard
+
+Interactive Tableau dashboards were created to visualize:
+
+Overall Churn Trends
+Customer Demographics
+Tenure-Based Churn Analysis
+Payment Mode Analysis
+Product Category Analysis
+RFM Customer Segmentation
+Customer Retention KPIs
+
+The dashboard enables stakeholders to quickly identify high-risk customer groups and business opportunities.
 
 ---
 
@@ -62,27 +133,38 @@ The dataset contains customer demographic and behavioral information from an e-c
 
 The following preprocessing techniques were applied:
 
-* Handling missing values using **KNNImputer** and **SimpleImputer**
-* Encoding categorical variables using **OneHotEncoder**
-* Feature scaling using **StandardScaler**
-* Building a preprocessing pipeline using **Scikit-learn Pipeline**
-* Splitting the dataset into **training and testing sets**
+Missing Value Handling
+KNNImputer for numerical variables
+SimpleImputer for categorical variables
+Encoding
+OneHotEncoder for categorical features
+Scaling
+StandardScaler for numerical features
+Pipeline Construction
+
+Scikit-Learn Pipelines and ColumnTransformers were used to ensure reproducible preprocessing workflows.
 
 ---
 
 ## Handling Class Imbalance
 
-Customer churn datasets are typically imbalanced because fewer customers churn compared to those who stay. 
+Customer churn datasets are typically imbalanced because fewer customers churn compared to customers who stay.
 
 To address this issue:
-* **SMOTE (Synthetic Minority Oversampling Technique)** was used within an `imblearn` pipeline to balance the minority class without causing data leakage.
-* This improves the model’s ability to correctly identify actual churned customers.
+
+SMOTE (Synthetic Minority Oversampling Technique) was applied within an imbalanced-learn pipeline.
+Oversampling was performed only on training data to prevent data leakage.
+This improved the model's ability to correctly identify churned customers.
 
 ---
 
 ## Model Training
 
-**XGBoost Classifier**, optimized using cross-validation to capture complex, non-linear customer behaviors.
+Algorithm - XGBoost Classifier
+
+Hyperparameter Optimization done using RandomizedSearchCV
+
+Because missing a churning customer is costly, Recall and F1 Score were prioritized during model selection.
 
 ---
 
@@ -123,24 +205,10 @@ The churn prediction model is deployed using **Streamlit**. Users can enter cust
 
 ## Tech Stack
 
-* **Programming Language:** Python
+* **Programming Language:** Python, SQL
+* **Data Analytics:** MySQL, Tableau
 * **Data Manipulation & ML:** Pandas, NumPy, Scikit-learn, XGBoost, Imbalanced-learn
-* **Explainability & Visualization:** SHAP, Matplotlib, Seaborn
+* **Data Manipulation & ML:** Pandas, NumPy, Scikit-learn, XGBoost, Imbalanced-learn
+* **Explainability & Visualization:** SHAP, Matplotlib, Seaborn, Tableau
 * **Deployment:** Streamlit
 
----
-
-
-
-## Future Improvements
-
-* Improve model performance using advanced ensemble techniques
-* Deploy the model using **Docker and cloud platforms (AWS)**
-* Build an API using **FastAPI**
-* Implement real-time prediction pipelines
-
----
-
-## Author
-
-**Mayank Singh** M.Tech | Delhi Technological University (DTU)  
