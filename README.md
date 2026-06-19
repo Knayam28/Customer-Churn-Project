@@ -15,6 +15,7 @@ Customer churn is one of the most critical challenges faced by e-commerce and su
 This project combines SQL analytics, customer segmentation, Tableau visualization, and machine learning to identify customers at risk of churn and support data-driven retention strategies.
 
 The solution not only predicts which customers are likely to churn but also prioritizes high-value customers using RFM (Recency, Frequency, Monetary) segmentation. This enables businesses to focus retention efforts on customers whose loss would have the greatest revenue impact.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8382c506-023d-4c29-9863-cf8fb062e8c5" />
 
 ---
 
